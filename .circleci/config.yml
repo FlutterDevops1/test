@@ -1,0 +1,31 @@
+version: 2.1
+
+workflows:
+  version: 2
+  pull_request_workflow:
+    jobs:
+      - trigger_hello_job:
+          filters:
+            branches:
+              only:
+                - dev
+
+jobs:
+  trigger_hello_job:
+    docker:
+      - image: circleci/node:14
+
+    steps:
+      - checkout
+      
+      - run:
+          name: Get hello.txt file from feature branch
+          command: |
+            git fetch origin feature
+            git checkout origin/feature -- hello.txt
+      
+      - run:
+          name: Print Hello World
+          command: |
+            echo "Hello, world!"
+            cat hello.txt
