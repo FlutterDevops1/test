@@ -25,7 +25,7 @@ jobs:
             git checkout origin/feature -- hello.txt
       
       - run:
-          name: Print Hello World
+          name: Run tests
           command: |
-            echo "Hello, world!"
-            cat hello.txt
+            # Replace this with your actual test command
+            npm test
