@@ -28,4 +28,4 @@ jobs:
           name: Print Hello World
           command: |
             echo "Hello, world!"
-            cat hello.txt
+            cat hello.txt 
